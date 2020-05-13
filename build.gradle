@@ -2,12 +2,12 @@ plugins {
     id "groovy"
     id "com.github.johnrengelman.shadow" version "5.2.0"
     id "application"
+    id "codenarc"
 }
-
-
 
 version "0.1"
 group "myretail.micronaut.example"
+mainClassName = "myretail.micronaut.example.Application"
 
 repositories {
     mavenCentral()
@@ -42,16 +42,15 @@ dependencies {
 
 test.classpath += configurations.developmentOnly
 
-mainClassName = "myretail.micronaut.example.Application"
 tasks.withType(GroovyCompile) {
     groovyOptions.forkOptions.jvmArgs.add('-Dgroovy.parameters=true')
 }
 
-shadowJar {
-    mergeServiceFiles()
-}
-
 tasks.withType(JavaExec) {
     classpath += configurations.developmentOnly
-    jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
+    jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote', '--illegal-access=debug')
+}
+
+codenarc {
+    configFile = file("$projectDir/config/codenarc/codenarcMain.groovy")
 }
