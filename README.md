@@ -1,12 +1,11 @@
-# myretail-micronaut-example
-
-[![Build Status](https://travis-ci.org/jlstrater/myretail-micronaut-example.svg?branch=master)](https://travis-ci.org/jlstrater/myretail-micronaut-example)
+# myretail-micronaut-example [![Build Status](https://travis-ci.org/jlstrater/myretail-micronaut-example.svg?branch=master)](https://travis-ci.org/jlstrater/myretail-micronaut-example)
 
 The myRetail Micronaut Example application is a simple microservice that aggregates product data from multiple data sources and provides an endpoint for GET requests at: `/products/{id}`.
 
 ---
 
-This project is built using gradle. The following are standard commands for Gradle.
+This project is built using gradle. The following are standard commands for Gradle. On windows, use `gradlew` instead of `./gradlew`
+
 
 ## Running checks locally
 
@@ -34,9 +33,15 @@ Included in the build config is a plugin that generates a report called a build 
 
 ![Build Scan Example](images/build-scan-example.png)
 
----
-\* on windows, use `gradlew` instead of `./gradlew`
 
 ## Requirements
 * Java 9-12
 * a local instance of Redis (default settings)
+
+## Good to Know
+
+There is Swagger UI documentation at `/swagger-ui` and it includes a try it button.
+
+Redis must be running (`redis-server`) before you start the application. It is not necessary for the tests.
+
+The ids I know are valid (as of the morning of May 14) are: 54456119, 13264003, 12954218.

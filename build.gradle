@@ -22,9 +22,10 @@ configurations {
 
 dependencies {
     annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
+    annotationProcessor("io.micronaut:micronaut-management:$micronautVersion")
+    compileOnly "io.micronaut.configuration:micronaut-openapi:1.5.0"
     compileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly "io.micronaut:micronaut-inject-groovy"
-    compileOnly "com.github.kstyrc:embedded-redis:0.6"
     implementation platform("io.micronaut:micronaut-bom:$micronautVersion")
     implementation "io.micronaut:micronaut-runtime-groovy"
     implementation "io.micronaut:micronaut-validation"
@@ -32,8 +33,11 @@ dependencies {
     implementation "io.micronaut:micronaut-http-server-netty"
     implementation "io.micronaut:micronaut-http-client"
     implementation("io.micronaut.configuration:micronaut-redis-lettuce")
+    implementation "io.swagger.core.v3:swagger-annotations"
+    implementation "io.micronaut:micronaut-management:$micronautVersion"
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     testCompileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
+    testImplementation "com.github.kstyrc:embedded-redis:0.6"
     testImplementation platform("io.micronaut:micronaut-bom:$micronautVersion")
     testImplementation("org.spockframework:spock-core") {
         exclude group: "org.codehaus.groovy", module: "groovy-all"
@@ -41,6 +45,7 @@ dependencies {
     testImplementation "io.micronaut:micronaut-inject-groovy"
     testImplementation "io.micronaut.test:micronaut-test-spock"
     testImplementation "io.micronaut.test:micronaut-test-junit5"
+    testImplementation "com.github.tomakehurst:wiremock-jre8:2.26.3"
 }
 
 test.classpath += configurations.developmentOnly
