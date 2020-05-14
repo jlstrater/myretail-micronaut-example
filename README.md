@@ -1,5 +1,7 @@
 # myretail-micronaut-example
 
+[![Build Status](https://travis-ci.org/jlstrater/myretail-micronaut-example.svg?branch=master)](https://travis-ci.org/jlstrater/myretail-micronaut-example)
+
 The myRetail Micronaut Example application is a simple microservice that aggregates product data from multiple data sources and provides an endpoint for simple GET requests: `/products/{id}`.
 
 ---
