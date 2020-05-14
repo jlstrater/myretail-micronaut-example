@@ -1,3 +1,7 @@
 micronaut:
   application:
     name: myretail-micronaut-example
+
+redis:
+  uri: redis://localhost
+

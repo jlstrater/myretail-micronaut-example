@@ -3,8 +3,7 @@ package myretail.micronaut.example.controller
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
-import io.reactivex.Flowable
-import myretail.micronaut.example.model.RedskyProduct
+import myretail.micronaut.example.model.Product
 import myretail.micronaut.example.service.ProductService
 
 @Controller('/products')
@@ -16,9 +15,13 @@ class ProductController {
         this.service = service
     }
 
-    @Get(uri= '/{id}', produces = MediaType.APPLICATION_JSON)
-    Flowable<RedskyProduct> getProduct(Integer id) {
-        service.getById(id)
+    @Get(uri = '/{id}', produces = MediaType.APPLICATION_JSON)
+    Product getProduct(Integer id) {
+        new Product(
+                id: id,
+                name: service.getNameById(id),
+                currentPrice: service.getPricingById(id)
+        )
     }
 
 }

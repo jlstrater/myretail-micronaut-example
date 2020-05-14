@@ -1,11 +1,11 @@
-package myretail.micronaut.example
+package myretail.micronaut.example.client
 
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.client.RxHttpClient
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.http.uri.UriTemplate
 import io.reactivex.Flowable
-import myretail.micronaut.example.model.RedskyProduct
+import myretail.micronaut.example.model.redsky.RedskyProductList
 
 import javax.inject.Singleton
 
@@ -20,9 +20,12 @@ class RedskyClient {
         this.path = RedskyConfiguration.REDSKY_API_PATH
     }
 
-    Flowable<RedskyProduct> fetchProduct(Integer id) {
+    @SuppressWarnings('UnnecessaryReturnKeyword')
+    RedskyProductList fetchProductName(Integer id) {
         HttpRequest<?> request = HttpRequest.GET(constructUri(path, id))
-        client.retrieve(request, RedskyProduct)
+        Flowable flowable = client.retrieve(request, RedskyProductList)
+
+        return flowable.firstElement().blockingGet()
     }
 
     /*

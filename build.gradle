@@ -3,6 +3,7 @@ plugins {
     id "com.github.johnrengelman.shadow" version "5.2.0"
     id "application"
     id "codenarc"
+    id "jacoco"
 }
 
 version "0.1"
@@ -23,12 +24,14 @@ dependencies {
     annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly "io.micronaut:micronaut-inject-groovy"
+    compileOnly "com.github.kstyrc:embedded-redis:0.6"
     implementation platform("io.micronaut:micronaut-bom:$micronautVersion")
     implementation "io.micronaut:micronaut-runtime-groovy"
     implementation "io.micronaut:micronaut-validation"
     implementation "javax.annotation:javax.annotation-api"
     implementation "io.micronaut:micronaut-http-server-netty"
     implementation "io.micronaut:micronaut-http-client"
+    implementation("io.micronaut.configuration:micronaut-redis-lettuce")
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     testCompileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     testImplementation platform("io.micronaut:micronaut-bom:$micronautVersion")
@@ -61,4 +64,11 @@ codenarcTest {
 
 compileGroovy {
     groovyOptions.configurationScript = file("$projectDir/config/groovyc/groovycConfig.groovy")
+}
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
 }

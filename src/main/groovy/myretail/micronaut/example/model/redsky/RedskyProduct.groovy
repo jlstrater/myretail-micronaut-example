@@ -1,4 +1,4 @@
-package myretail.micronaut.example.model
+package myretail.micronaut.example.model.redsky
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import io.micronaut.core.annotation.Introspected
@@ -7,6 +7,8 @@ import io.micronaut.core.annotation.Introspected
 @JsonIgnoreProperties(ignoreUnknown = true)
 class RedskyProduct {
 
-    Map product
+    Item item
+    RedskyPrice price
 
 }
+

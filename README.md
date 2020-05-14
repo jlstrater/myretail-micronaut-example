@@ -39,3 +39,4 @@ Included in the build config is a plugin that generates a report called a build 
 
 ## Requirements
 * Java 9-12
+* a local instance of Redis (default settings)
