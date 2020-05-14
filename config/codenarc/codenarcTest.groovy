@@ -1,7 +1,7 @@
 ruleset {
 
     description '''
-        A curated list of CodeNarc Rules for source code, grouped by category. Turned off rules are still included but commented out.
+        A curated list of CodeNarc Rules for tests, grouped by category. Turned off rules are still included but commented out.
         '''
 
     // rulesets/basic.xml
@@ -302,12 +302,12 @@ ruleset {
     JUnitFailWithoutMessage
     JUnitLostTest
     JUnitPublicField
-    JUnitPublicNonTestMethod
-    JUnitPublicProperty
+//    JUnitPublicNonTestMethod
+//    JUnitPublicProperty
     JUnitSetUpCallsSuper
     JUnitStyleAssertions
     JUnitTearDownCallsSuper
-    JUnitTestMethodWithoutAssert
+//    JUnitTestMethodWithoutAssert
     JUnitUnnecessarySetUp
     JUnitUnnecessaryTearDown
     JUnitUnnecessaryThrowsException
@@ -340,7 +340,7 @@ ruleset {
     FieldName
     InterfaceName
     InterfaceNameSameAsSuperInterface
-    MethodName
+//    MethodName
     ObjectOverrideMisspelledMethodName
     PackageName
     PackageNameMatchesFilePath

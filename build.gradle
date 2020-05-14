@@ -51,6 +51,14 @@ tasks.withType(JavaExec) {
     jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote', '--illegal-access=debug')
 }
 
-codenarc {
+codenarcMain {
     configFile = file("$projectDir/config/codenarc/codenarcMain.groovy")
+}
+
+codenarcTest {
+    configFile = file("$projectDir/config/codenarc/codenarcTest.groovy")
+}
+
+compileGroovy {
+    groovyOptions.configurationScript = file("$projectDir/config/groovyc/groovycConfig.groovy")
 }
