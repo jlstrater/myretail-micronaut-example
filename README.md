@@ -2,14 +2,11 @@
 
 [![Build Status](https://travis-ci.org/jlstrater/myretail-micronaut-example.svg?branch=master)](https://travis-ci.org/jlstrater/myretail-micronaut-example)
 
-The myRetail Micronaut Example application is a simple microservice that aggregates product data from multiple data sources and provides an endpoint for simple GET requests: `/products/{id}`.
+The myRetail Micronaut Example application is a simple microservice that aggregates product data from multiple data sources and provides an endpoint for GET requests at: `/products/{id}`.
 
 ---
 
-## Requirements
-* Java 9-12
-
-The myRetail example application is built using gradle. The following are standard commands for Gradle.
+This project is built using gradle. The following are standard commands for Gradle.
 
 ## Running checks locally
 
@@ -17,7 +14,7 @@ To ensure that all checks are passing, execute:
 
 `./gradlew check` 
 
-This command will run the tests and any other checks like any code coverage and static analysis tools as you would want to do before pushing to a remote repository.
+This command will run the tests and any other checks like any code coverage and static analysis tools.
 
 ## Building the app
 
@@ -39,3 +36,6 @@ Included in the build config is a plugin that generates a report called a build 
 
 ---
 \* on windows, use `gradlew` instead of `./gradlew`
+
+## Requirements
+* Java 9-12
